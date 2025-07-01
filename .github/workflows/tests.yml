@@ -18,6 +18,11 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Set up Test env
+        working-directory: ./tests
+        run: |
+          npm install
+
       - name: Install and test backend
         working-directory: ./backend
         run: |
