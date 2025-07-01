@@ -34,6 +34,11 @@ jobs:
         run: |
           npm run test:coverage
 
+      - name: Backend code quality
+        working-directory: ./backend
+        run: |
+          npm run lint
+
       - name: Install and test frontend
         working-directory: ./frontend
         run: |
