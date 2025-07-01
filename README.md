@@ -13,6 +13,7 @@
     Branches de fix de bugs "fix...".
     Pour chaque nouveau dev ou nouvelle fonctionnalité, on crée une nouvelle branche feature à partir de main, on code dessus, ensuite on push, on merge dans develop et ensuite on crée une pull request pour merger dans main.
     Cette PR doit etre revue et approuvée par un autre collaborateur.
+5. Utilisation des issues GitHub pour créer les taches et les features implementées et permettre un meilleur suivi.
 
 ### Développement Collaboratif
 1. Création de l'arborescence :
@@ -40,9 +41,13 @@ projet-gestionnaire-taches/
     - CI/CD et Déploiement :
 
     On a créé une pipeline CI configurée avec Github Actions qui lance tous les tests automatiquement implementés à chaque push ou pull request, et execute le linting et vérifie la couverture du code.
+    Les tests du front avec E2E n'ont pas pu etre inclus dans l'automatisation car le test nécessite que le serveur frontend soit démarré, et a également besoin d'un navigateur.
     Cette automatisation nous a permis d’assurer la stabilité du projet à chaque nouvelle modification.
     Après l'implementation de cette pipeline et la correction des erreurs rencontrées, on a pu faire un push qui a passé tout le pipeline, et créé une pull request pour mettre dans main, ceci est visible dans Actions sur GitHub.
 
 ### Exécution du Projet en Local
 En executant les commandes fournies on a lancé l'application en local, en démarrant le backend et le frontend, puis en accèdant à l'interface via http://localhost:3000.
 
+
+### Amélioration
+Si on avait eu plus de temps, on travaillerait sur l'automatisation de déploiement (Partie CD), ainsi que sur l'amélioration de l'IHM de l'application.
