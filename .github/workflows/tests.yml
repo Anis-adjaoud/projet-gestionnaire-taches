@@ -2,10 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [ develop ]
   pull_request:
-    branches: [ develop ]
-
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -16,18 +13,25 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '20'
+
+      - name: Set up Test env
+        working-directory: ./tests
+        run: |
+          npm install
 
       - name: Install and test backend
         working-directory: ./backend
         run: |
           npm ci
           npm test
-          npm run lint
 
-      - name: Install and test frontend
-        working-directory: ./frontend
+      - name: Backend code coverage
+        working-directory: ./backend
         run: |
-          npm ci
-          npm test
+          npm run test:coverage
+
+      - name: Backend code quality
+        working-directory: ./backend
+        run: |
           npm run lint
